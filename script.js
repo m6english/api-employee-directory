@@ -23,7 +23,7 @@ function displayEmployees(employeeData) {
         let picture = employee.picture;
     // use template literal
     employeeHTML += `
-    <div class="card" data-index="${index}">
+    <div class="card" data-index='${index}'>
     <img class="avatar" src="${picture.large}" />
     <div class="text-container">
         <h2 class="name">${name.first} ${name.last}</h2>
@@ -43,7 +43,7 @@ function displayModal(index) {
     let date = new Date(dob.date);
 
     const modalHTML = `
-    <img class="avatar" src="" />
+    <img class="avatar" src="${picture.large}" />
         <div class="text-container">
             <h2 class ="name">${name.first} ${name.last}</h2>
             <p class="email">${email}</p>
@@ -62,7 +62,7 @@ function displayModal(index) {
 gridContainer.addEventListener('click', e => {
     if (e.target !== gridContainer) {
         const card = e.target.closest(".card");
-        const index = card.getAttribute('data-index');
+        const index = card.getAttribute("data-index");
 
         displayModal(index);
     }
@@ -71,3 +71,4 @@ gridContainer.addEventListener('click', e => {
 modalClose.addEventListener('click', () => {
     overlay.classList.add("hidden");
 });
+
